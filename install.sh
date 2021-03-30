@@ -26,9 +26,9 @@ gsettings set org.gnome.desktop.background picture-uri "file:///home/$USER/Pictu
 #-----------------------------------------------------------------------------------------------------------------------
 # setting
 #-----------------------------------------------------------------------------------------------------------------------
-gsettings set org.gnome.desktop.interface enable-animations false ;
-gsettings set org.gnome.desktop.session idle-delay 0 ;
-gsettings set org.gnome.settings-daemon.plugins.power idle-dim false ;
+gsettings set org.gnome.desktop.interface enable-animations false           ;
+gsettings set org.gnome.desktop.session idle-delay 0                        ;
+gsettings set org.gnome.settings-daemon.plugins.power idle-dim false        ;
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 30 ;
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -48,10 +48,10 @@ sudo systemctl enable jetson_stats.service
 #-----------------------------------------------------------------------------------------------------------------------
 # software
 #-----------------------------------------------------------------------------------------------------------------------
-echo "samba-common samba-common/workgroup string  WORKGROUP" | sudo debconf-set-selections
-echo "samba-common samba-common/dhcp boolean true" | sudo debconf-set-selections
-echo "samba-common samba-common/do_debconf boolean true" | sudo debconf-set-selections
-sudo apt install -y emacs-nox htop curl git axel samba openssh-server net-tools exfat-fuse exfat-utils ffmpeg ibus-mozc imagemagick lame unar;
+echo "samba-common samba-common/workgroup string  WORKGROUP" | sudo debconf-set-selections ;
+echo "samba-common samba-common/dhcp boolean true"           | sudo debconf-set-selections ;
+echo "samba-common samba-common/do_debconf boolean true"     | sudo debconf-set-selections ;
+sudo apt install -y emacs-nox htop curl git axel samba openssh-server net-tools exfat-fuse exfat-utils ffmpeg ibus-mozc imagemagick lame unar ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # youtube-dl
