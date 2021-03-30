@@ -21,7 +21,7 @@ echo 'Defaults timestamp_timeout = 1200' | sudo EDITOR='tee -a' visudo ;
 # wall paper
 #-----------------------------------------------------------------------------------------------------------------------
 wget http://gahag.net/img/201602/11s/gahag-0055029460-1.jpg -O /home/$USER/Pictures/1.jpg ;
-pcmanfm -w /home/$USER/Pictures/1.jpg ;
+gsettings set org.gnome.desktop.background picture-uri "file:///home/$USER/Pictures/1.jpg" ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # setting
