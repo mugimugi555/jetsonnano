@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# wget
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_opencv.sh && bash install_opencv.sh ;
 
 # setting ###################################################
 
