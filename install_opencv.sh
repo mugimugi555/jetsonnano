@@ -17,7 +17,7 @@ SWAPLIMIT=`free -m | egrep '^Swap:' | tr -s ' ' | awk '{print $2}'` ;
 
 echo $SWAPLIMIT;
 
-if $SWAPLIMIT < 6000 ; then
+if $SWAPLIMIT -lt 6000 ; then
 
   echo "not enough swap size";
   echo "auto create and reboot";
