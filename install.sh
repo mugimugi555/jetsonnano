@@ -51,7 +51,7 @@ sudo systemctl enable jetson_stats.service
 echo "samba-common samba-common/workgroup string  WORKGROUP" | sudo debconf-set-selections ;
 echo "samba-common samba-common/dhcp boolean true"           | sudo debconf-set-selections ;
 echo "samba-common samba-common/do_debconf boolean true"     | sudo debconf-set-selections ;
-sudo apt install -y emacs-nox htop curl git axel samba openssh-server net-tools exfat-fuse exfat-utils ffmpeg ibus-mozc imagemagick lame unar ;
+sudo apt install -y emacs-nox htop curl git axel samba openssh-server net-tools exfat-fuse exfat-utils ffmpeg ibus-mozc imagemagick lame unar vlc ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # youtube-dl
