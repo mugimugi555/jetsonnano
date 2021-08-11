@@ -12,6 +12,7 @@ echo "=========================================";
 
 cd ;
 sudo apt install -y libhdf5-dev ;
+/usr/bin/python3 -m pip install --upgrade pip ;
 wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
 bash tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
 
