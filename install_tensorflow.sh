@@ -11,8 +11,6 @@ echo "https://github.com/PINTO0309/Tensorflow-bin";
 echo "=========================================";
 
 cd ;
-sudo apt install -y libhdf5-dev ;
-/usr/bin/python3 -m pip install --upgrade pip ;
 wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
 bash tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
 
@@ -20,6 +18,8 @@ echo "=========================================";
 echo " install tensorflow 2.5 about 30 minutes";
 echo "=========================================";
 pip cache purge ;
+/usr/bin/python3 -m pip install --upgrade pip ;
+python3 -m pip install h5py
 python3 -m pip install tensorflow-hub tensorflow-datasets tensorflow-2.5.0-cp36-none-linux_aarch64.whl ;
 
 echo "=========================================";
