@@ -17,9 +17,10 @@ bash tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
 echo "=========================================";
 echo " install tensorflow 2.5 about 30 minutes";
 echo "=========================================";
+sudo apt install -y libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev ;
 pip cache purge ;
 /usr/bin/python3 -m pip install --upgrade pip ;
-python3 -m pip install h5py
+#python3 -m pip install h5py
 python3 -m pip install tensorflow-hub tensorflow-datasets tensorflow-2.5.0-cp36-none-linux_aarch64.whl ;
 
 echo "=========================================";
