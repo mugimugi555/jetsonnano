@@ -2,34 +2,40 @@
 
 # wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_tensorflow.sh && bash install_tensorflow.sh ;
 
-# for jetson nano and python 3.6
+#-----------------------------------------------------------------------------------------------------------------------
+# note
+# for jetson nano and python 3.6 ( cp36 aarch64 )
+# https://github.com/PINTO0309/Tensorflow-bin/tree/main/previous_versions
+# https://developer.download.nvidia.com/compute/redist/jp/v461/tensorflow/
+#-----------------------------------------------------------------------------------------------------------------------
 
-echo "=========================================";
-echo "setup tensorflow 2.5 for python 3.6 cpu arm 64bit";
-echo "if you want other arch , please visit here";
-echo "https://github.com/PINTO0309/Tensorflow-bin";
-echo "=========================================";
-
+#-----------------------------------------------------------------------------------------------------------------------
+# download install shell
+#-----------------------------------------------------------------------------------------------------------------------
 cd ;
-wget https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/main/tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
-bash tensorflow-2.5.0-cp36-none-linux_aarch64_download.sh ;
+wget https://developer.download.nvidia.com/compute/redist/jp/v461/tensorflow/tensorflow-2.7.0+nv22.1-cp36-cp36m-linux_aarch64.whl ;
+wget https://developer.download.nvidia.com/compute/redist/jp/v461/pytorch/torch-1.11.0a0+17540c5-cp36-cp36m-linux_aarch64.whl ;
 
-echo "=========================================";
-echo " install tensorflow 2.5 about 30 minutes";
-echo "=========================================";
-sudo apt install -y libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev ;
+#-----------------------------------------------------------------------------------------------------------------------
+# install tensorflow 2.5 about 30 minutes
+#-----------------------------------------------------------------------------------------------------------------------
+#sudo apt install -y libhdf5-serial-dev hdf5-tools libhdf5-dev zlib1g-dev zip libjpeg8-dev ;
+sudo apt install -y \
+  libhdf5-serial-dev hdf5-tools libhdf5-dev \
+  zlib1g-dev zip libjpeg8-dev liblapack-dev libblas-dev gfortran ;
 pip cache purge ;
 /usr/bin/python3 -m pip install --upgrade pip ;
 #python3 -m pip install h5py
-python3 -m pip install tensorflow-hub tensorflow-datasets tensorflow-2.5.0-cp36-none-linux_aarch64.whl ;
+python3 -m pip install \
+  tensorflow-hub \
+  tensorflow-datasets \
+  tensorflow-2.7.0+nv22.1-cp36-cp36m-linux_aarch64.whl \
+  torch-1.11.0a0+17540c5-cp36-cp36m-linux_aarch64.whl ;
 
-echo "=========================================";
-echo " check install tensorflow";
-echo "=========================================";
+#-----------------------------------------------------------------------------------------------------------------------
+# check install tensorflow
+#-----------------------------------------------------------------------------------------------------------------------
 python3 -c 'import tensorflow as tf; print(tf.__version__)'  # for Python 3
 
-echo "=========================================";
-echo " if has error please input next command";
-echo "=========================================";
-echo "pip uninstall numpy";
-echo "pip install numpy";
+#pip uninstall numpy
+#pip install numpy
