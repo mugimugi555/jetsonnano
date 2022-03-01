@@ -3,20 +3,15 @@
 # wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install.sh && bash install.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
-# proxy
+#
 #-----------------------------------------------------------------------------------------------------------------------
-#sudo echo "Acquire::http::Proxy \"http://192.168.0.5:3142\";" | sudo tee -a /etc/apt/apt.conf.d/02proxy ;
+sudo echo ;
+echo 'Defaults timestamp_timeout = 1200' | sudo EDITOR='tee -a' visudo ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # home dir name jp 2 english
 #-----------------------------------------------------------------------------------------------------------------------
 LANG=C xdg-user-dirs-gtk-update ;
-
-#-----------------------------------------------------------------------------------------------------------------------
-# sudo time out
-#-----------------------------------------------------------------------------------------------------------------------
-sudo echo ;
-echo 'Defaults timestamp_timeout = 1200' | sudo EDITOR='tee -a' visudo ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # wall paper
@@ -51,7 +46,12 @@ sudo systemctl enable jetson_stats.service
 echo "samba-common samba-common/workgroup string  WORKGROUP" | sudo debconf-set-selections ;
 echo "samba-common samba-common/dhcp boolean true"           | sudo debconf-set-selections ;
 echo "samba-common samba-common/do_debconf boolean true"     | sudo debconf-set-selections ;
-sudo apt install -y emacs-nox htop curl git axel samba openssh-server net-tools exfat-fuse exfat-utils ffmpeg ibus-mozc imagemagick lame unar vlc ;
+sudo apt install -y \
+  emacs-nox htop curl git axel \
+  samba openssh-server net-tools \
+  exfat-fuse exfat-utils \
+  ffmpeg ibus-mozc imagemagick \
+  lame unar vlc ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # youtube-dl
@@ -70,8 +70,7 @@ XKBVARIANT=""
 XKBOPTIONS="ctrl:nocaps"
 TEXT
 )
-
-sudo echo "$CAPS2CTRL" | sudo tee /etc/default/keyboard
+echo "$CAPS2CTRL" | sudo tee /etc/default/keyboard ;
 
 MYKEYBOARD=$(cat<<TEXT
 <component>
@@ -100,7 +99,7 @@ MYKEYBOARD=$(cat<<TEXT
 </component>
 TEXT
 )
-sudo echo "$MYKEYBOARD" | sudo tee /usr/share/ibus/component/mozc.xml ;
+echo "$MYKEYBOARD" | sudo tee /usr/share/ibus/component/mozc.xml ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # setting jp
@@ -110,7 +109,9 @@ sudo apt install -y manpages-ja manpages-ja-dev ;
 sudo update-locale LANG=ja_JP.UTF8 ;
 sudo ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime ;
 sudo mkdir /usr/share/locale-langpack/ja ;
-sudo apt install -y ibus-mozc language-pack-gnome-ja language-pack-gnome-ja-base language-pack-ja language-pack-ja-base fonts-takao-gothic fonts-takao-mincho $(check-language-support) ;
+sudo apt install -y \
+  ibus-mozc language-pack-gnome-ja language-pack-gnome-ja-base language-pack-ja language-pack-ja-base \
+  fonts-takao-gothic fonts-takao-mincho $(check-language-support) ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # create 8GB swap
@@ -162,7 +163,7 @@ source ~/.bashrc ;
 # gsettings set org.gnome.Vino vnc-password $(echo -n 'jetsonnano'|base64) ;
 
 #-----------------------------------------------------------------------------------------------------------------------
-# reboot
+# finish
 #-----------------------------------------------------------------------------------------------------------------------
 sudo apt autoremove -y ;
 sudo reboot now ;
