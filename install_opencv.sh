@@ -27,7 +27,7 @@ fi
 #-----------------------------------------------------------------------------------------------------------------------
 # install opencv
 #-----------------------------------------------------------------------------------------------------------------------
-wget hraw/main/OpenCV-${OPENCV_VERSION}.sh ;
+wget https://github.com/Qengineering/Install-OpenCV-Jetson-Nano/raw/main/OpenCV-${OPENCV_VERSION}.sh ;
 sudo chmod 755 ./OpenCV-${OPENCV_VERSION}.sh ;
 ./OpenCV-${OPENCV_VERSION}.sh ;
 
