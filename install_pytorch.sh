@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_pytorch.sh && bash install_pytorch.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # NOTE : https://qengineering.eu/install-pytorch-on-jetson-nano.html
