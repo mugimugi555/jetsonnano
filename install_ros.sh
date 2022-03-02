@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_ros.sh && bash install_ros.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # add repository
