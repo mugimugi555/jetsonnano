@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_ai_world.sh && bash install_ai_world ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # ai world
