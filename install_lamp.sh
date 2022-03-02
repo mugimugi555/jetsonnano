@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_lamp.sh && bash install_lamp.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # add php repository
