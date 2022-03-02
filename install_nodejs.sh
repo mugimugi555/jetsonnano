@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_nodejs.sh && bash install_nodejs.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # install nodejs , npm
