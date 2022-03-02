@@ -46,11 +46,11 @@ sudo systemctl enable jetson_stats.service
 echo "samba-common samba-common/workgroup string  WORKGROUP" | sudo debconf-set-selections ;
 echo "samba-common samba-common/dhcp boolean true"           | sudo debconf-set-selections ;
 echo "samba-common samba-common/do_debconf boolean true"     | sudo debconf-set-selections ;
-sudo apt install -y \
-  emacs-nox htop curl git axel \
+sudo apt install -y              \
+  emacs-nox htop curl git axel   \
   samba openssh-server net-tools \
-  exfat-fuse exfat-utils \
-  ffmpeg ibus-mozc imagemagick \
+  exfat-fuse exfat-utils         \
+  ffmpeg ibus-mozc imagemagick   \
   lame unar vlc ;
 
 #-----------------------------------------------------------------------------------------------------------------------
@@ -128,20 +128,6 @@ cd installSwapfile ;
 #wget -O insider.deb https://update.code.visualstudio.com/latest/linux-deb-arm64/insider ;
 #sudo apt install -y ./insider.deb ;
 #sudo mv /usr/bin/code-insiders /usr/bin/code ;
-
-#-----------------------------------------------------------------------------------------------------------------------
-# ai world
-#-----------------------------------------------------------------------------------------------------------------------
-sudo apt install -y git cmake libpython3-dev python3-numpy ;
-cd ;
-git clone --recursive https://github.com/dusty-nv/jetson-inference ;
-cd jetson-inference ;
-mkdir build ;
-cd build ;
-cmake ../ ;
-make -j$(nproc) ;
-sudo make install ;
-sudo ldconfig ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # alias
