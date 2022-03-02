@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-#
+# wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_yarn.sh && bash install_yarn.sh ;
 
 #-----------------------------------------------------------------------------------------------------------------------
 # add repository
