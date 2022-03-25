@@ -15,7 +15,7 @@ sudo apt-key adv --keyserver 'hkp://keyserver.ubuntu.com:80' --recv-key C1CF6E31
 # install ros
 #-----------------------------------------------------------------------------------------------------------------------
 sudo apt update ;
-sudo apt install ros-melodic-desktop-full ;
+sudo apt install -y ros-melodic-desktop-full ;
 echo "source /opt/ros/melodic/setup.bash" >> ~/.profile ;
 source ~/.profile ;
 #sudo apt install -y python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential ;
@@ -23,7 +23,7 @@ source ~/.profile ;
 #-----------------------------------------------------------------------------------------------------------------------
 # install python-ros
 #-----------------------------------------------------------------------------------------------------------------------
-sudo apt install python-rosdep ;
+sudo apt install -y python-rosdep ;
 sudo rosdep init ;
 rosdep update ;
 
