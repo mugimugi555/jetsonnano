@@ -15,7 +15,7 @@ sudo add-apt-repository -y ppa:ondrej/php ;
 #-----------------------------------------------------------------------------------------------------------------------
 sudo apt update ;
 sudo apt upgrade -y ;
-sudo apt install  \
+sudo apt install -y \
   apache2 \
   php php-cli php-fpm php-mbstring php-mysql php-curl php-gd php-curl php-zip php-xml \
   mariadb-server ;
