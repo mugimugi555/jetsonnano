@@ -6,6 +6,7 @@
 # ai world
 #-----------------------------------------------------------------------------------------------------------------------
 sudo apt install -y git cmake libpython3-dev python3-numpy ;
+sudo chown $USER:$USER -R ~/.local ;
 cd ;
 git clone --recursive https://github.com/dusty-nv/jetson-inference ;
 cd jetson-inference ;
