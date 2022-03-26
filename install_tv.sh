@@ -1,5 +1,27 @@
 #!/bin/bash
 
+exit;
+
+# https://qiita.com/konikoni428/items/2fa3674ecc764e11c59a
+# https://linuxtut.com/fr/2fa3674ecc764e11c59a/
+# https://developer.nvidia.com/embedded/linux-tegra
+
+# https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/sources/t210/public_sources.tbz2
+
+sudo apt install -y apt-utils ;
+
+sudo jetson_clocks
+sudo apt install -y libncurses5-dev
+cd && mkdir kernel && cd kernel
+wget https://developer.nvidia.com/embedded/L4T/r32_Release_v4.2/Sources/T210/public_sources.tbz2
+tar xvf public_sources.tbz2
+cd Linux_for_Tegra/source/public
+tar xvf kernel_src.tbz2
+cd kernel/kernel-4.9
+zcat /proc/config.gz  > .config
+make menuconfig
+
+
 # wget https://raw.githubusercontent.com/mugimugi555/jetsonnano/main/install_tv.sh && bash install_tv.sh ;
 
 # https://blog.ch3cooh.jp/entry/2021/04/06/200732
