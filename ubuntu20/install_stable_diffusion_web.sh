@@ -1,3 +1,8 @@
+# Qengineering/Jetson-Nano-Ubuntu-20-image: Jetson Nano with Ubuntu 20.04 image 
+# https://github.com/Qengineering/Jetson-Nano-Ubuntu-20-image
+
+# not work :-)
+
 sudo echo ;
 
 #
