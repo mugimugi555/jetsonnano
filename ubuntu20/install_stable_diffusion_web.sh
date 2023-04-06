@@ -3,6 +3,14 @@
 
 # not work :-)
 
+# for Ubuntu CLI mode
+# https://tek2tech.com/ubuntu-2004-desktop-environment/
+#
+# sudo systemctl set-default multi-user
+# shutdown -r now
+# export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libGLdispatch.so.0:$LD_PRELOAD
+# rm ~/.cache/gstreamer-1.0/ -fr
+
 sudo echo ;
 
 #
