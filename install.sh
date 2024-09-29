@@ -133,8 +133,16 @@ cd installSwapfile ;
 # alias
 #-----------------------------------------------------------------------------------------------------------------------
 MYALIAS=$(cat<<TEXT
+
+# myalias
 alias a="axel -a -n 5"
 alias u='unar'
+alias up='sudo echo && sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y'
+
+# enable nvcc
+export PATH=/usr/local/cuda/bin:${PATH}
+export LD_LIBRARY_PATH=/usr/local/cuda/lib64:${LD_LIBRARY_PATH}
+
 TEXT
 )
 echo "$MYALIAS" >> ~/.bashrc ;
