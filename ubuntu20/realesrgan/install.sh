@@ -82,7 +82,7 @@ done
 echo "=== 画像の拡大処理を実行中 ==="
 wget 'https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan/blob/master/images/input2.jpg?raw=true' -O input.jpg
 xdg-open input.jpg &
-./realesrgan-ncnn-vulkan -i input -o output.jpg -s 2 -m models -n realesrgan-x4plus
+./realesrgan-ncnn-vulkan -i input.jpg -o output.jpg -s 2 -m models -n realesrgan-x4plus
 xdg-open output.jpg &
 
 echo "=== 完了しました ==="
