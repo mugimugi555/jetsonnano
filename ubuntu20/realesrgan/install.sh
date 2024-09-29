@@ -2,11 +2,11 @@
 
 # ====== セクション1: 必要な依存パッケージのインストール ======
 echo "=== 依存パッケージをインストール中 ==="
-cd ~
 sudo apt install -y cmake git g++ libvulkan-dev vulkan-utils libopencv-dev
 
 # ====== セクション2: NCNNのクローンとビルド ======
 echo "=== NCNNをクローンしてビルド ==="
+cd ~
 git clone https://github.com/Tencent/ncnn.git
 cd ncnn
 git submodule update --init --recursive
@@ -18,9 +18,9 @@ sudo make install
 
 # ====== セクション3: CMakeのアップデート ======
 echo "=== CMakeのバージョンをアップデート ==="
-cd ~
 cmake --version
 sudo apt install -y build-essential libssl-dev
+cd ~
 wget https://github.com/Kitware/CMake/releases/download/v3.30.4/cmake-3.30.4-Linux-aarch64.tar.gz
 tar -zxvf cmake-3.30.4-Linux-aarch64.tar.gz 
 cd cmake-3.30.4-linux-aarch64/
@@ -40,8 +40,8 @@ xdg-open https://github.com/settings/keys
 
 # ====== セクション5: Real-ESRGAN-ncnn-vulkanのクローンとビルド ======
 echo "=== Real-ESRGAN-ncnn-vulkanをクローンしてビルド ==="
-cd ~
 sudo apt-get install -y glslang-tools
+cd ~
 git clone https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan.git --recursive
 cd Real-ESRGAN-ncnn-vulkan/src/
 mkdir build
