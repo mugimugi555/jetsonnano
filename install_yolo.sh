@@ -21,6 +21,9 @@ sed -i 's/OPENCV=0/OPENCV=1/' Makefile
 # YOLOのビルド
 make -j$(nproc)
 
+# YOLOモデルのダウンロード
+wget -O yolov4.weights https://pjreddie.com/media/files/yolov4.weights
+
 # インストール確認
 echo "YOLO installed successfully. Checking version:"
 ./darknet detector test cfg/coco.data cfg/yolov4.cfg yolov4.weights data/dog.jpg
