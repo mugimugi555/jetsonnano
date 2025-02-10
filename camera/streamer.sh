@@ -10,23 +10,15 @@ sudo apt install -y git wget build-essential cmake \
 # NVIDIAのCUDAツールキットとcuDNNをインストール（Jetson Nano向け）
 sudo apt install -y nvidia-cuda-toolkit
 
-# GPT4Allのソースコードを取得
-git clone https://github.com/nomic-ai/gpt4all.git
-cd gpt4all
-
-# Pythonの依存関係をインストール
-pip3 install -r requirements.txt
-
-# モデルのダウンロード
-wget -O gpt4all-model.bin https://gpt4all.io/models/gpt4all-lora-quantized.bin
-
-# インストール確認
-echo "GPT4All installed successfully. Running test:"
-python3 gpt4all.py
-
 # Jetson Nanoをストリーミングカメラとして設定
 echo "Starting Jetson Nano as a streaming camera..."
 gst-launch-1.0 v4l2src device=/dev/video0 ! videoconvert ! x264enc ! rtph264pay config-interval=1 ! udpsink host=192.168.1.100 port=5000 &
 
 echo "Streaming started. You can view the stream on another device using:"
 echo "ffplay udp://192.168.1.100:5000"
+
+# 顔検出を追加（OpenCV使用）
+echo "Starting face detection..."
+python3 -c "import cv2; cap = cv2.VideoCapture(0); face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'); while True: ret, frame = cap.read(); if not ret: break; gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY); faces = face_cascade.detectMultiScale(gray, 1.1, 4); for (x, y, w, h) in faces: cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2); cv2.imshow('Face Detection', frame); if cv2.waitKey(1) & 0xFF == ord('q'): break; cap.release(); cv2.destroyAllWindows()"
+
+echo "Face detection started. Press 'q' to exit."
