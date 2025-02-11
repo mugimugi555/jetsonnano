@@ -1,4 +1,6 @@
-# 🚀 OpenCV CUDA インストール & GPU フィルター一覧
+# 🚀 OpenCV CUDA
+
+[タイトル画像](assets/images/header.png)
 
 ## **📌 概要**
 このプロジェクトでは、Jetson Nano などの CUDA 対応デバイスで **GPU 最適化された OpenCV** を使用するためのインストール方法と、
@@ -20,14 +22,14 @@ chmod +x install_opencv_cuda.sh
 ./install_opencv_cuda.sh
 ```
 
-✅ **このスクリプトは OpenCV をソースからビルドし、CUDA サポートを有効化します！**  
+✅ **このスクリプトは OpenCV をソースからビルドし、CUDA サポートを有効化します**  
 ✅ **インストール完了後、CUDA が有効か確認するには以下のコマンドを実行してください。**  
 
 ```bash
 python3 -c "import cv2; print(cv2.__version__); print('CUDA Enabled:', cv2.cuda.getCudaEnabledDeviceCount() > 0)"
 ```
 
-✅ **CUDA が有効なら `True` が表示されます！**
+✅ **CUDA が有効なら `True` が表示されます**
 
 ---
 
@@ -45,7 +47,7 @@ python3 -c "import cv2; print(cv2.__version__); print('CUDA Enabled:', cv2.cuda.
 | `cuda_Threshold` | 2値化 |
 | `cuda_WarpAffine` | 変形（回転・スケール） |
 
-✅ **これらのフィルターを利用することで、画像処理のパフォーマンスを大幅に向上できます！**
+✅ **これらのフィルターを利用することで、画像処理のパフォーマンスを大幅に向上できます**
 
 ---
 
@@ -58,5 +60,7 @@ python3 -c "import cv2; print(cv2.__version__); print('CUDA Enabled:', cv2.cuda.
 python3 camera_filters_cuda.py
 ```
 
-✅ **USB カメラの映像をリアルタイムで処理し、CUDA フィルターを適用します！**  
-✅ **複数のフィルターを 3x3 のグリッドで並べて表示！**
+✅ **USB カメラの映像をリアルタイムで処理し、CUDA フィルターを適用します**  
+✅ **複数のフィルターを 3x3 のグリッドで並べて表示**
+
+[タイトル画像](assets/images/footer.png)
