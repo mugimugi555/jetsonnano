@@ -51,19 +51,11 @@ python3 -c "import cv2; print(cv2.__version__); print('CUDA Enabled:', cv2.cuda.
 
 ## **📌 3️⃣ Python プログラムの起動方法**
 
-### **🔧 事前準備**
-まず、必要なパッケージをインストールしてください。
-
-```bash
-sudo apt update
-sudo apt install -y python3-opencv python3-numpy
-```
-
 ### **🔧 GPU フィルターを適用する Python スクリプトの実行**
 以下のコマンドを実行して、リアルタイムで CUDA フィルターを適用できます。
 
 ```bash
-python3 gpu_filters.py
+python3 camera_filters_cuda.py
 ```
 
 ✅ **USB カメラの映像をリアルタイムで処理し、CUDA フィルターを適用します！**  
