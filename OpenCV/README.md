@@ -1,6 +1,6 @@
 # 🚀 OpenCV CUDA
 
-[!タイトル画像](assets/images/header.png)
+![タイトル画像](assets/images/header.png)
 
 ## **📌 概要**
 このプロジェクトでは、Jetson Nano などの CUDA 対応デバイスで **GPU 最適化された OpenCV** を使用するためのインストール方法と、
@@ -63,4 +63,4 @@ python3 camera_filters_cuda.py
 ✅ **USB カメラの映像をリアルタイムで処理し、CUDA フィルターを適用します**  
 ✅ **複数のフィルターを 3x3 のグリッドで並べて表示**
 
-[タイトル画像](assets/images/footer.png)
+![タイトル画像](assets/images/footer.png)
