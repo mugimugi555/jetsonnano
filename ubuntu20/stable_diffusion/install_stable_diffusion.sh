@@ -1,42 +1,72 @@
-# Qengineering/Jetson-Nano-Ubuntu-20-image: Jetson Nano with Ubuntu 20.04 image 
-# https://github.com/Qengineering/Jetson-Nano-Ubuntu-20-image
+#!/bin/bash
+set -e  # エラーが発生したらスクリプトを停止
 
-# not work :-)
+# ===================================
+# Jetson Nano セットアップスクリプト
+# ===================================
 
-sudo echo ;
+# --- システム依存パッケージのインストール ---
+echo "システム依存パッケージをインストール中..."
+sudo apt update
+sudo apt install -y \
+    python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev \
+    libavcodec-dev libavformat-dev libswscale-dev zlib1g-dev libpython3-dev
 
-sudo apt install -y python3-pip ;
+# --- LD_PRELOAD の設定 ---
+LD_PRELOAD_PATH="/usr/lib/aarch64-linux-gnu/libgomp.so.1"
+if ! grep -q "export LD_PRELOAD=$LD_PRELOAD_PATH" ~/.bashrc; then
+    echo "export LD_PRELOAD=$LD_PRELOAD_PATH" >> ~/.bashrc
+    source ~/.bashrc
+fi
 
-export LD_PRELOAD=/usr/lib/aarch64-linux-gnu/libgomp.so.1
-source ~/.bashrc
+# ===================================
+# PyTorch のインストール
+# ===================================
 
-# install pytorch
-sudo apt install -y python3-pip libjpeg-dev libopenblas-dev libopenmpi-dev libomp-dev
-sudo -H pip3 install future
-sudo pip3 install -U --user wheel mock pillow
-sudo -H pip3 install testresources
-sudo -H pip3 install setuptools==58.3.0
-sudo -H pip3 install Cython
-sudo -H pip3 install gdown
-gdown https://drive.google.com/uc?id=1e9FDGt2zGS5C5Pms7wzHYRb0HuupngK1
+echo "PyTorch をインストール中..."
+sudo -H pip3 install -U future wheel mock pillow testresources
+sudo -H pip3 install setuptools==58.3.0 Cython gdown
+
+# PyTorch の `.whl` ファイルをダウンロードしてインストール
+if [ ! -f "torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl" ]; then
+    echo "PyTorch のバイナリをダウンロード中..."
+    gdown https://drive.google.com/uc?id=1e9FDGt2zGS5C5Pms7wzHYRb0HuupngK1
+fi
+echo "PyTorch をインストール中..."
 sudo -H pip3 install torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
-rm torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl
+rm -f torch-1.13.0a0+git7c98e70-cp38-cp38-linux_aarch64.whl  # インストール後に削除
 
-# install torchvision
-sudo apt install -y libjpeg-dev zlib1g-dev libpython3-dev
-sudo apt install -y libavcodec-dev libavformat-dev libswscale-dev
-sudo pip3 install -U pillow
-sudo -H pip3 install gdown
-gdown https://drive.google.com/uc?id=19UbYsKHhKnyeJ12VPUwcSvoxJaX7jQZ2
+# ===================================
+# Torchvision のインストール
+# ===================================
+
+echo "Torchvision をインストール中..."
+if [ ! -f "torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl" ]; then
+    echo "Torchvision のバイナリをダウンロード中..."
+    gdown https://drive.google.com/uc?id=19UbYsKHhKnyeJ12VPUwcSvoxJaX7jQZ2
+fi
+echo "Torchvision をインストール中..."
 sudo -H pip3 install torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl
+rm -f torchvision-0.14.0a0+5ce4506-cp38-cp38-linux_aarch64.whl  # インストール後に削除
 
-# install library
-pip install -U numpy==1.22.1
-pip install -U scipy==1.9.1
-pip install -U pillow==9.0.1
+# ===================================
+# 必須ライブラリのインストール
+# ===================================
 
-sudo -H pip install jetson-stats
+echo "Python 必須ライブラリをインストール中..."
+pip3 install -U numpy==1.22.1 scipy==1.9.1 pillow==9.0.1
+sudo -H pip3 install jetson-stats
 
-# install diffusers
-pip3 install git+https://github.com/huggingface/diffusers.git@main;
-pip3 install git+https://github.com/huggingface/accelerate.git@main;
+# ===================================
+# Hugging Face Diffusers のインストール
+# ===================================
+
+echo "Hugging Face の Diffusers と Accelerate をインストール中..."
+pip3 install -U git+https://github.com/huggingface/diffusers.git@main
+pip3 install -U git+https://github.com/huggingface/accelerate.git@main
+
+# ===================================
+# セットアップ完了
+# ===================================
+
+echo "セットアップ完了！ 🚀"
